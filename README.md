@@ -4,6 +4,8 @@ This repository is composed of based on Nginx handbook of farhan.info.
 
 "Sharing knowledge is the most fundamental act of friendship. Because it is a way you can give something without loosing something. — Richard Stallman"
 
+I am grateful to Mr.Farhan for this amazing handbook.
+
 Sample cases are created by Vagrant. Used vagrantfile can be fount at the repository.
 
 ***Nginx*** is high performance web server.
@@ -127,7 +129,9 @@ For example:
 `curl http://nginx-handbook.test/user?name=Farhan`
 
 `Host - nginx-handbook.test`
+
 `URI - /user`
+
 `Args - name=Farhan`
 
 ### User defined
@@ -166,9 +170,9 @@ If you enter `http://nginx-handbook.test/about_page`, redirection won't be appli
 ```
 try_files /the-nginx-handbook.jpg /not_found;
 
-    location /not_found {
-        return 404 "sadly, you've hit a brick wall buddy!\n";
-    }
+location /not_found {
+    return 404 "sadly, you've hit a brick wall buddy!\n";
+}
 ```
 
 If it doesn't exist, go to the /not_found location.
@@ -191,7 +195,7 @@ location = /admin {
         access_log /var/logs/nginx/admin.log;
             
         return 200 "this will be logged in a separate file.\n";
-    }
+}
 ```
 
 ### Disallow the logging.
@@ -201,7 +205,7 @@ location = /no_logging {
     access_log off;
             
         return 200 "this will not be logged.\n";
-    }
+}
 ```
 
 ## Reverse Proxy
@@ -311,7 +315,7 @@ These two lines instruct NGINX to include any configuration files found inside t
 
 There is another directory **/etc/nginx/sites-available/** that's meant to store configuration files for your virtual hosts. The **/etc/nginx/sites-enabled/** directory is meant for storing the symbolic links to the files from the **/etc/nginx/sites-available/** directory.
 
-Sample:
+For example:
 
 -   `/etc/nginx/sites-available/`
     -   `site-a`
@@ -324,7 +328,7 @@ Sample:
 
 
 Sample creating soft link:
-`ln -s /etc/nginx/sites-available/site-a /etc/nginx/sites-enabled/site-b`
+`ln -s /etc/nginx/sites-available/site-a /etc/nginx/sites-enabled/site-a`
 
 
 Sample `site-a`:
@@ -339,7 +343,6 @@ server {
 ```
 
 Note:
-
 Since main configuration has expression `include /etc/nginx/sites-enabled/*;` within `http` block, files which are under `sites-available` should start with `server`.
 
 
