@@ -54,7 +54,7 @@ http {
 }
 ```
 
-## To server static content
+## To serve static content
 
 ```
 events {
